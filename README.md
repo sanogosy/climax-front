@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
 
+Apres avoir demarrer le Back-End, puis le Front-End
+Uploader d'abord un fichier CSV. Un exemple de fichier est dans le repertoire du Front-End
+Cliquez sur Uploader
+Rafraichissez la page pour recuperer la liste des fichiers uploadés.
+
+Dans la liste des fichiers uploadés, vous pouvez extraire les clients
+Rafraichissez la page
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
