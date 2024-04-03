@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">  
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" tabindex="-1">
+
+                        <div class="card-header" role="Document">
+                            <h3 class="card-title">
+                                Charger un fichier
+                            </h3>
+                        </div>
+                        <form role="form" novalidate class="card-body">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <input #fileInput type="file" (change)="selectFile($event)" 
+                                    style="display:none;"/>
+                                    <label class="input-group-text" for="inputGroupFile01" 
+                                    (click)="fileInput.click()">
+                                        Selectionner
+                                    </label>
+                                </div>
+            
+                                <div class="custom-file">
+                                    <input placeholder="Choose file" class="form-control" id="inputGroupFile01"
+                                    value="{{fileInput.value.substr(fileInput.value.lastIndexOf('\\')+1)}}"
+                                    style="width: 36.96vh">
+                                </div>
+                            </div>
+                            <div class="">
+                                <button type="button" class="btn btn-primary" (click)="uploadFile()">
+                                    Uploader
+                                </button>
+                            </div>
+                        </form>
+            
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+
+                    <h3>Liste des clients</h3>
+                    <table style="margin-top: 20px;" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nom & Prenom
+                                </th>
+                                <th>
+                                    Revenu
+                                </th>
+                            </tr>
+                        </thead>
+            
+                        <tbody>
+                            @for(client of clientList; track trackId) {
+                                <tr>
+                                    <td>
+                                        {{ client.nom_client }} {{ client.prenom_client }}
+                                    </td>
+                                    <td>
+                                        {{ client.client_revenu }}
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-success" >Voir</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <h3>Liste des fichiers</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            titre
+                        </th>
+                        <th>
+                            Url
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for(fichier of fileList; track trackId) {
+                        <tr>
+                            <td>
+                                {{ fichier.titre }}
+                            </td>
+                            <td>
+                                {{ fichier.url }}
+                            </td>
+                            <td>
+                                <button class="btn btn-success" (click)="saveClient(fichier)">Extraire les clients</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
