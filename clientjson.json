@@ -1,0 +1,23 @@
+[   
+    {
+        "nom_client": "Akira",
+        "prenom_client": "Toriyama",
+        "identifiant": "1500",
+        "profession_client": "Anime",
+        "client_revenu": "5000"
+    },
+    {
+        "nom_client": "Invictus",
+        "prenom_client": "Maneo",
+        "identifiant": "1500",
+        "profession_client": "Anime",
+        "client_revenu": "3000"
+    },
+    {
+        "nom_client": "Morior",
+        "prenom_client": "Mortis",
+        "identifiant": "1500",
+        "profession_client": "Acteur",
+        "client_revenu": "5000"
+    }
+]

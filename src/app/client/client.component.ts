@@ -30,11 +30,8 @@ import { IClient } from '../model/iclient';
 export class ClientComponent implements OnInit {
 
   file!: File;
-  // fileDetails!: FileDetails;
   fileUris: Array<string> = [];
   clientList?: IClient [] | null;
-
-  // clientList?: IClient [] | null;
 
   fileList?: IFichier [] | null;
 
@@ -53,9 +50,9 @@ export class ClientComponent implements OnInit {
 
   uploadFile() {
     let fileName = this.file.name;
-    // console.log('>>>>>>>>>>>> ' + this.file.type + ' Name : ' + fileName);
     this.fileUploadService.upload(fileName, this.file).subscribe({
       next: (data) => {
+        this.reloadPage();
         alert("File Uploaded Successfully")
       },
       error: (e) => {
@@ -64,11 +61,13 @@ export class ClientComponent implements OnInit {
     });
   }
 
+  reloadPage() {
+    window.location.reload();
+  }
+
   getAllFile() {
     this.fileUploadService.fichierList().subscribe({
       next: (data) => {
-        // this.fileDetails = data;
-        // this.fileUris.push(this.fileDetails.fileUri);
         this.fileList = data.body;
       },
       error: (e) => {

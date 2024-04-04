@@ -1,0 +1,2 @@
+Akira1, Toriyama, 1500, Anime, 5000;
+Invictus1, Maneo2, 1500, Anime, 3000;

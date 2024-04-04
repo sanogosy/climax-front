@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">  
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card" tabindex="-1">
+                <div class="col-md-4">
+                    <div class="card" style="margin-top: 80px;" tabindex="-1">
 
                         <div class="card-header" role="Document">
                             <h3 class="card-title">
@@ -37,67 +37,79 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
-
-                    <h3>Liste des clients</h3>
-                    <table style="margin-top: 20px;" class="table table-striped">
+                <div class="col-md-8">
+                    <h3>Liste des fichiers</h3>
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>
-                                    Nom & Prenom
+                                    titre
                                 </th>
                                 <th>
-                                    Revenu
+                                    Url
                                 </th>
                             </tr>
                         </thead>
-            
+        
                         <tbody>
-                            @for(client of clientList; track trackId) {
+                            @for(fichier of fileList; track trackId) {
                                 <tr>
                                     <td>
-                                        {{ client.nom_client }} {{ client.prenom_client }}
+                                        {{ fichier.titre }}
                                     </td>
                                     <td>
-                                        {{ client.client_revenu }}
+                                        {{ fichier.url }}
                                     </td>
                                     <td>
-                                        <button class="btn btn-success" >Voir</button>
+                                        <button class="btn btn-success" (click)="saveClient(fichier)">Extraire les clients</button>
                                     </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                 </div>
+                
             </div>
-        </div>
+        </div>        
 
-        <div class="col-md-2"></div>
-        <div class="col-md-6">
-            <h3>Liste des fichiers</h3>
-            <table class="table table-striped">
+        <div class="col-md-12">
+
+            <h3>Liste des clients</h3>
+            <table style="margin-top: 20px;" class="table table-striped">
                 <thead>
                     <tr>
                         <th>
-                            titre
+                            Nom & Prenom
                         </th>
                         <th>
-                            Url
+                            Identifiant
+                        </th>
+                        <th>
+                            Profession
+                        </th>
+                        <th>
+                            Revenu
                         </th>
                     </tr>
                 </thead>
-
+    
                 <tbody>
-                    @for(fichier of fileList; track trackId) {
+                    @for(client of clientList; track trackId) {
                         <tr>
                             <td>
-                                {{ fichier.titre }}
+                                {{ client.nom_client }} {{ client.prenom_client }}
                             </td>
                             <td>
-                                {{ fichier.url }}
+                                {{ client.identifiant }}
                             </td>
                             <td>
-                                <button class="btn btn-success" (click)="saveClient(fichier)">Extraire les clients</button>
+                                {{ client.profession_client }}
+                            </td>
+                            <td>
+                                {{ client.client_revenu }}
+                            </td>
+                            <td>
+                                <button class="btn btn-success" >Voir</button>
                             </td>
                         </tr>
                     }
